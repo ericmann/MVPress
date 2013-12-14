@@ -77,8 +77,18 @@ function mvpress_template_part( $slug, $name = null, $model = null, $tempData = 
 	do_action( "get_template_part_{$slug}", $slug, $name );
 
 	$templates = array();
-	if ( isset( $name ) ) {
+	if ( 'string' === gettype( $name ) ) {
+		// If $name is a string, assume it's a template part definition and load a template.
 		$templates[] = "{$slug}-{$name}.php";
+	} elseif ( null !== $name ) {
+		// If $name is non-null and also not a string, then we're overloading the method as ( $slug, $model, $tempData )
+		if ( null !== $model ) {
+			// The third parameter (now assumed to be $tempData) is non-null, so move it to the proper variable.
+			$tempData = $model;
+		}
+
+		// Move the data model from the second variable ($name) to its proper place.
+		$model = $name;
 	}
 	$templates[] = "{$slug}.php";
 
