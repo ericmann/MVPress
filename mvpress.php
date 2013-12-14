@@ -41,8 +41,8 @@ define( 'MVPRESS_URL',     plugin_dir_url( __FILE__ ) );
 define( 'MVPRESS_PATH',    dirname( __FILE__ ) . '/' );
 
 // Require our objects
-require_once __DIR__ . '/includes/class-wp-template.php';
-require_once __DIR__ . '/includes/class-wp-templatecontext.php';
+require_once 'includes/class-wp-template.php';
+require_once 'includes/class-wp-templatecontext.php';
 
 /**
  * Default initialization for the plugin:
