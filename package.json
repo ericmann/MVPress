@@ -1,0 +1,25 @@
+{
+  "name": "mvpress",
+  "title": "MVPress",
+  "description": "MVC-style template loader for WordPress",
+  "version": "0.1.0",
+  "homepage": "http://wordpress.org/plugins/mvpress",
+  "author": {
+    "name": "Eric Mann",
+    "email": "eric@eamann.com",
+    "url": "http://eamann.com"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.1.2",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-watch": "~0.2.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-compress": "~0.5.2"
+  },
+  "keywords": []
+}
