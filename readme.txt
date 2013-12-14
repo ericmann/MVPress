@@ -2,8 +2,8 @@
 Contributors:      ericmann
 Donate link:       http://wordpress.org/plugins/mvpress
 Tags:              MVC, template, get_template_part
-Requires at least: 3.5.1
-Tested up to:      3.5.1
+Requires at least: 3.7.1
+Tested up to:      3.8
 Stable tag:        0.1.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
