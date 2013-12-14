@@ -40,6 +40,10 @@ define( 'MVPRESS_VERSION', '0.1.0' );
 define( 'MVPRESS_URL',     plugin_dir_url( __FILE__ ) );
 define( 'MVPRESS_PATH',    dirname( __FILE__ ) . '/' );
 
+// Require our objects
+require_once __DIR__ . '/includes/class-wp-template.php';
+require_once __DIR__ . '/includes/class-wp-templatecontext.php';
+
 /**
  * Default initialization for the plugin:
  * - Registers the default textdomain.
@@ -49,30 +53,42 @@ function mvpress_init() {
 	load_textdomain( 'mvpress', WP_LANG_DIR . '/mvpress/mvpress-' . $locale . '.mo' );
 	load_plugin_textdomain( 'mvpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
-
-/**
- * Activate the plugin
- */
-function mvpress_activate() {
-	// First load the init scripts in case any rewrite functionality is being loaded
-	mvpress_init();
-
-	flush_rewrite_rules();
-}
-register_activation_hook( __FILE__, 'mvpress_activate' );
-
-/**
- * Deactivate the plugin
- * Uninstall routines should be in uninstall.php
- */
-function mvpress_deactivate() {
-
-}
-register_deactivation_hook( __FILE__, 'mvpress_deactivate' );
-
-// Wireup actions
 add_action( 'init', 'mvpress_init' );
 
-// Wireup filters
+/**
+ * Shortcut to create a new WP_Template object and render it on the page.
+ *
+ * Template file will be fetched from the theme assuming it is named {$slug}-{$name}.php. To reference templates
+ * in a subdirectory, add the subdirectory to the $name parameter.
+ *
+ * For example, assuming you need to reference the template file in /templates/special-video.php, you would call
+ * get_template_part( 'templates/special', 'video' ), optionally passing in $model and $context objects.
+ *
+ * @uses do_action() Calls 'get_template_part_{$slug}' action, passing both $slug and $name to the hook.
+ *
+ * @param string $slug     The slug name for the generic template.
+ * @param string $name     The name of the specialised template (optional.
+ * @param mixed  $model    Object to be passed in to the view (optional).
+ * @param array  $tempData Object to pass additional contextual information (optional).
+ *
+ * @return void
+ */
+function mvpress_template_part( $slug, $name = null, $model = null, $tempData = array() ) {
+	do_action( "get_template_part_{$slug}", $slug, $name );
 
-// Wireup shortcodes
+	$templates = array();
+	if ( isset( $name ) ) {
+		$templates[] = "{$slug}-{$name}.php";
+	}
+	$templates[] = "{$slug}.php";
+
+	$path = locate_template( $templates );
+
+	if ( '' === $path ) {
+		return;
+	}
+
+	$template = new WP_Template( $path, $model, $tempData );
+
+	$template->render();
+}
