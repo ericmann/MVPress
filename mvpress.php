@@ -67,13 +67,17 @@ add_action( 'init', 'mvpress_init' );
  * @uses do_action() Calls 'get_template_part_{$slug}' action, passing both $slug and $name to the hook.
  *
  * @param string $slug     The slug name for the generic template.
- * @param string $name     The name of the specialised template (optional.
+ * @param string $name     The name of the specialised template (optional).
  * @param mixed  $model    Object to be passed in to the view (optional).
  * @param array  $tempData Object to pass additional contextual information (optional).
+ * @param bool   $return   [optional] <p>
+ * If you would like to capture the output of <b>print_r</b>,
+ * use the <i>return</i> parameter. When this parameter is set
+ * to <b>TRUE</b>, <b>print_r</b> will return the information rather than print it.
  *
  * @return void
  */
-function mvpress_template_part( $slug, $name = null, $model = null, $tempData = array() ) {
+function mvpress_template_part( $slug, $name = null, $model = null, $tempData = array(), $return = false ) {
 	do_action( "get_template_part_{$slug}", $slug, $name );
 
 	$templates = array();
@@ -100,5 +104,5 @@ function mvpress_template_part( $slug, $name = null, $model = null, $tempData = 
 
 	$template = new WP_Template( $path, $model, $tempData );
 
-	$template->render();
+	return $template->render($return);
 }
