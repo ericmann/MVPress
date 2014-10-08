@@ -45,14 +45,27 @@ class WP_Template {
 	 *
 	 * Should declare local $model and $context variables and assign the class variables to them for easy access inside
 	 * the template file scope.
+	 * 
+	 * @param bool $return [optional] <p>
+	 * If you would like to capture the output of <b>print_r</b>,
+	 * use the <i>return</i> parameter. When this parameter is set
+	 * to <b>TRUE</b>, <b>print_r</b> will return the information rather than print it.
 	 *
 	 * @uses include()
 	 */
-	public function render() {
+	public function render($return = false) {
 		if( ! file_exists( $this->view ) ) {
 			return;
 		}
 
+		ob_start(); // turn on output buffering
 		include( $this->view );
+		$output = ob_get_contents(); // get the contents of the output buffer
+		ob_end_clean(); //  clean (erase) the output buffer and turn off output buffering
+
+		if ($return)
+			return $output;
+		
+		echo $output;
 	}
 }

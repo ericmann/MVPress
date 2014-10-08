@@ -40,6 +40,9 @@ The fourth (again, optional) parameter of the `mvpress_template_part()` function
 
 == Changelog ==
 
+= 0.2.0 =
+* Added support for returning the template's output into a variable.
+
 = 0.1.0 =
 * First release
 
