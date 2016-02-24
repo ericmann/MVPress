@@ -13,6 +13,13 @@
 		}
 	],
 	"minimum-stability": "stable",
+	"autoload": {
+		"files": [
+			"php/class-wp-template.php",
+			"php/class-wp-templatecontext.php",
+			"php/general-template.php"
+		]
+	},
 	"require": {},
 	"require-dev": {
 		"10up/wp_mock": "^0.1.1",
