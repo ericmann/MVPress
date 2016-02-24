@@ -1,49 +1,20 @@
 <?php
 /**
- * Plugin Name: MVPress
- * Plugin URI:  http://wordpress.org/plugins/mvpress
- * Description: MVC-style template loader for WordPress
- * Version:     1.0.0
- * Author:      Eric Mann
- * Author URI:  http://eamann.com
- * License:     GPLv2+
+ * MVPress Library Autoloader
+ *
+ * @author    Eric Mann <eric@eamann.com>
+ * @copyright 2015 Eric Mann
+ * @license   GPLv2+
+ * @version   1.0.0
  */
 
-/**
- * Copyright (c) 2013-5 Eric Mann (email : eric@eamann.com)
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 2 or, at
- * your discretion, any later version, as published by the Free
- * Software Foundation.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- */
+// Require files
+require_once dirname( __FILE__ ) . 'php/class-wp-template.php';
+require_once dirname( __FILE__ ) . 'php/class-wp-templatecontext.php';
+require_once dirname( __FILE__ ) . 'php/general-template.php';
 
 /**
- * Built using grunt-wp-plugin
- * Copyright (c) 2013 10up, LLC
- * https://github.com/10up/grunt-wp-plugin
- */
-
-// Useful global constants
-define( 'MVPRESS_VERSION', '0.1.0' );
-define( 'MVPRESS_URL',     plugin_dir_url( __FILE__ ) );
-define( 'MVPRESS_PATH',    dirname( __FILE__ ) . '/' );
-
-// Require our objects
-require_once 'includes/class-wp-template.php';
-require_once 'includes/class-wp-templatecontext.php';
-
-/**
- * Shortcut to create a new WP_Template object and render it on the page.
+ * Back-compate shortcut to create a new WP_Template object and render it on the page.
  *
  * Template file will be fetched from the theme assuming it is named {$slug}-{$name}.php. To reference templates
  * in a subdirectory, add the subdirectory to the $name parameter.
