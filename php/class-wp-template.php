@@ -1,4 +1,6 @@
 <?php
+namespace MVPress;
+
 /**
  * Wrapper class for building out template parts as views and passing arbitrary data models to the theme front end
  * with contextual data.
@@ -26,15 +28,15 @@ class WP_Template {
 	/**
 	 * Default Constructor
 	 *
-	 * @param string $src
-	 * @param mixed  $model
-	 * @param array  $tempData Optional additional data
+	 * @param string $src    Include path for the template
+	 * @param mixed  $model  Model object passed into the template
+	 * @param array  [$data] Optional additional data
 	 */
-	public function __construct( $src, $model, $tempData = array() ) {
+	public function __construct( $src, $model, $data = array() ) {
 		$this->context = new WP_TemplateContext();
 
 		$this->context->template = $src;
-		$this->context->tempData = array_merge( $this->context->tempData, $tempData );
+		$this->context->data = array_merge( $this->context->data, $data );
 
 		$this->view  = $src;
 		$this->model = $model;

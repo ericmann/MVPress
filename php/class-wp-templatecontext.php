@@ -1,14 +1,14 @@
 <?php
+namespace MVPress;
+
 /**
  * Context object made available for rendered templates. Contains information pertaining to the template instance,
  * it's invoker, and the context in which the template was created.
  *
- * @property-read WP_Query $query    Current WP_Query instance
+ * @property-read \WP_Query $query    Current WP_Query instance
  * @property-read array     $request  Shortcut to PHP's global $_REQUEST array
- * @property-read bool      $reliable Flag whether or not the internal collection is safe
- * @property      array     $tempData Arbitrary user data storage
  * @property      string    $template Source of the template file
- * @property      string    $function Name of the function invoking the template part
+ * @property      array     $data     Arbitrary user data storage
  *
  * @package WordPress
  * @subpackage Templates
@@ -24,8 +24,8 @@ class WP_TemplateContext {
 	 * Default object constructor
 	 */
 	public function __construct() {
-		$this->_collection             = array();
-		$this->_collection['tempData'] = apply_filters( 'default_template_data', array() );
+		$this->_collection         = array();
+		$this->_collection['data'] = apply_filters( 'default_template_data', array() );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class WP_TemplateContext {
 				break;
 		}
 
-		return new WP_Error( __( 'Unknown context property.', 'mvpress' ) );
+		return new \WP_Error( 'unknown-template-context-property', __( 'Unknown context property.' ), $property );
 	}
 
 	/**
