@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "02bc6a61f43c7953b7496f0b878d60f7",
-    "content-hash": "1aa20b57500017c0329118a6bc8d9bbe",
+    "hash": "83b9c6487a5fd26e5c2274d00e99921e",
+    "content-hash": "dd95711ce3cc695e3ee6997690f6ae27",
     "packages": [],
     "packages-dev": [
         {
@@ -48,20 +48,20 @@
         },
         {
             "name": "antecedent/patchwork",
-            "version": "1.4.2",
+            "version": "1.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antecedent/patchwork.git",
-                "reference": "f691893db7111eb858f0e4b7b8d4b9c4143848c8"
+                "reference": "cc6ee49876d2e530a4a74a8f50332c781a780059"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antecedent/patchwork/zipball/f691893db7111eb858f0e4b7b8d4b9c4143848c8",
-                "reference": "f691893db7111eb858f0e4b7b8d4b9c4143848c8",
+                "url": "https://api.github.com/repos/antecedent/patchwork/zipball/cc6ee49876d2e530a4a74a8f50332c781a780059",
+                "reference": "cc6ee49876d2e530a4a74a8f50332c781a780059",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "notification-url": "https://packagist.org/downloads/",
@@ -74,17 +74,15 @@
                     "email": "ignas.rudaitis@gmail.com"
                 }
             ],
-            "description": "Method redefinition (monkey-patching) functionality for PHP.",
+            "description": "A pure PHP library that lets you redefine user-defined functions at runtime.",
+            "homepage": "http://antecedent.github.io/patchwork/",
             "keywords": [
-                "aop",
-                "aspect",
-                "interception",
                 "monkeypatching",
                 "redefinition",
                 "runkit",
                 "testing"
             ],
-            "time": "2016-02-22 05:07:12"
+            "time": "2014-08-04 10:14:20"
         },
         {
             "name": "doctrine/instantiator",
