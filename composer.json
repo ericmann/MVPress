@@ -1,0 +1,17 @@
+{
+	"name": "ericmann/mvpress",
+	"description": "MVC-style template loader for WordPress",
+	"type": "library",
+	"license": "GPLv2+",
+	"version": "1.0.0",
+	"authors": [
+		{
+			"name": "Eric Mann",
+			"email": "eric@eamann.com",
+			"homepage": "https://eamann.com",
+			"role": "Developer"
+		}
+	],
+	"minimum-stability": "stable",
+	"require": {}
+}
