@@ -22,7 +22,7 @@ require_once dirname( __FILE__ ) . 'php/general-template.php';
  * For example, assuming you need to reference the template file in /templates/special-video.php, you would call
  * get_template_part( 'templates/special', 'video' ), optionally passing in $model and $context objects.
  *
- * @uses do_action() Calls 'get_template_part_{$slug}' action, passing both $slug and $name to the hook.
+ * @deprecated since 1.0.0 Use \MVPress\get_template_part()
  *
  * @param string $slug     The slug name for the generic template.
  * @param string $name     The name of the specialised template (optional.
