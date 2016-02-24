@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "83b9c6487a5fd26e5c2274d00e99921e",
-    "content-hash": "dd95711ce3cc695e3ee6997690f6ae27",
+    "hash": "3ed0d896471c28ff0e35a7ef7440a106",
+    "content-hash": "a1c7148ee3fa56179b980b8d5cdc5d4a",
     "packages": [],
     "packages-dev": [
         {
@@ -48,22 +48,27 @@
         },
         {
             "name": "antecedent/patchwork",
-            "version": "1.2.9",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/antecedent/patchwork.git",
-                "reference": "cc6ee49876d2e530a4a74a8f50332c781a780059"
+                "reference": "e7b7f0104f0602d57c7085f3bf858ba171a81aef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antecedent/patchwork/zipball/cc6ee49876d2e530a4a74a8f50332c781a780059",
-                "reference": "cc6ee49876d2e530a4a74a8f50332c781a780059",
+                "url": "https://api.github.com/repos/antecedent/patchwork/zipball/e7b7f0104f0602d57c7085f3bf858ba171a81aef",
+                "reference": "e7b7f0104f0602d57c7085f3bf858ba171a81aef",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=5.4.0"
             },
             "type": "library",
+            "autoload": {
+                "files": [
+                    "src/QuietBootstrap.php"
+                ]
+            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -74,15 +79,17 @@
                     "email": "ignas.rudaitis@gmail.com"
                 }
             ],
-            "description": "A pure PHP library that lets you redefine user-defined functions at runtime.",
-            "homepage": "http://antecedent.github.io/patchwork/",
+            "description": "Monkey-patching for PHP, in PHP.",
             "keywords": [
+                "aop",
+                "aspect",
+                "interception",
                 "monkeypatching",
                 "redefinition",
                 "runkit",
                 "testing"
             ],
-            "time": "2014-08-04 10:14:20"
+            "time": "2016-01-15 21:23:51"
         },
         {
             "name": "doctrine/instantiator",
