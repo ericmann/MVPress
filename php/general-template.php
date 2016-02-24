@@ -26,14 +26,14 @@ namespace MVPress;
  *
  * @since 3.0.0
  *
- * @param string $slug     The slug name for the generic template.
- * @param string $name     The name of the specialised template (optional.
- * @param mixed  $model    Object to be passed in to the view (optional).
- * @param array  $tempData Object to pass additional contextual information (optional).
+ * @param string $slug    The slug name for the generic template.
+ * @param string $name    The name of the specialised template (optional.
+ * @param mixed  [$model] Object to be passed in to the view (optional).
+ * @param array  [$data]  Object to pass additional contextual information (optional).
  *
  * @return void
  */
-function get_template_part( $slug, $name = null, $model = null, $tempData = array() ) {
+function get_template_part( $slug, $name = null, $model = null, $data = array() ) {
 	/**
 	 * Fires before the specified template part file is loaded.
 	 *
@@ -52,10 +52,10 @@ function get_template_part( $slug, $name = null, $model = null, $tempData = arra
 		// If $name is a string, assume it's a template part definition and load a template.
 		$templates[] = "{$slug}-{$name}.php";
 	} elseif ( null !== $name ) {
-		// If $name is non-null and also not a string, then we're overloading the method as ( $slug, $model, $tempData )
+		// If $name is non-null and also not a string, then we're overloading the method as ( $slug, $model, $data )
 		if ( null !== $model ) {
-			// The third parameter (now assumed to be $tempData) is non-null, so move it to the proper variable.
-			$tempData = $model;
+			// The third parameter (now assumed to be $data) is non-null, so move it to the proper variable.
+			$data = $model;
 		}
 
 		// Move the data model from the second variable ($name) to its proper place.
@@ -69,7 +69,7 @@ function get_template_part( $slug, $name = null, $model = null, $tempData = arra
 		return;
 	}
 
-	$template = new WP_Template( $path, $model, $tempData );
+	$template = new WP_Template( $path, $model, $data );
 
 	$template->render();
 }

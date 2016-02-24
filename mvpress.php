@@ -24,13 +24,13 @@ require_once dirname( __FILE__ ) . 'php/general-template.php';
  *
  * @deprecated since 1.0.0 Use \MVPress\get_template_part()
  *
- * @param string $slug     The slug name for the generic template.
- * @param string $name     The name of the specialised template (optional.
- * @param mixed  $model    Object to be passed in to the view (optional).
- * @param array  $tempData Object to pass additional contextual information (optional).
+ * @param string $slug    The slug name for the generic template.
+ * @param string $name    The name of the specialised template (optional.
+ * @param mixed  [$model] Object to be passed in to the view (optional).
+ * @param array  [$data]  Object to pass additional contextual information (optional).
  *
  * @return void
  */
-function mvpress_template_part( $slug, $name = null, $model = null, $tempData = array() ) {
-	\MVPress\get_template_part( $slug, $name, $model, $tempData );
+function mvpress_template_part( $slug, $name = null, $model = null, $data = array() ) {
+	\MVPress\get_template_part( $slug, $name, $model, $data );
 }
