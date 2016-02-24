@@ -1,0 +1,1 @@
+Context claims something happened <?php echo $this->context->request['times']; ?> times!

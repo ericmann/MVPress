@@ -1,0 +1,1 @@
+This is a <?php echo $this->model->text; ?>

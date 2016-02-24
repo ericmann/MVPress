@@ -6,9 +6,9 @@ namespace MVPress;
  * it's invoker, and the context in which the template was created.
  *
  * @property-read \WP_Query $query    Current WP_Query instance
- * @property-read array      $request  Shortcut to PHP's global $_REQUEST array
- * @property-read bool       $reliable Flag whether or not the internal collection is safe
- * @property      array      $data     Arbitrary user data storage
+ * @property-read array     $request  Shortcut to PHP's global $_REQUEST array
+ * @property      string    $template Source of the template file
+ * @property      array     $data     Arbitrary user data storage
  *
  * @package WordPress
  * @subpackage Templates

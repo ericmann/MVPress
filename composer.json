@@ -13,5 +13,9 @@
 		}
 	],
 	"minimum-stability": "stable",
-	"require": {}
+	"require": {},
+	"require-dev": {
+		"10up/wp_mock": "^0.1.1",
+		"phpunit/phpunit": "^4.8"
+	}
 }
