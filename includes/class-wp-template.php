@@ -1,4 +1,6 @@
 <?php
+namespace MVPress;
+
 /**
  * Wrapper class for building out template parts as views and passing arbitrary data models to the theme front end
  * with contextual data.

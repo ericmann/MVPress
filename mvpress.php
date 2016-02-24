@@ -3,16 +3,14 @@
  * Plugin Name: MVPress
  * Plugin URI:  http://wordpress.org/plugins/mvpress
  * Description: MVC-style template loader for WordPress
- * Version:     0.1.0
+ * Version:     1.0.0
  * Author:      Eric Mann
  * Author URI:  http://eamann.com
  * License:     GPLv2+
- * Text Domain: mvpress
- * Domain Path: /languages
  */
 
 /**
- * Copyright (c) 2013 Eric Mann (email : eric@eamann.com)
+ * Copyright (c) 2013-5 Eric Mann (email : eric@eamann.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -45,17 +43,6 @@ require_once 'includes/class-wp-template.php';
 require_once 'includes/class-wp-templatecontext.php';
 
 /**
- * Default initialization for the plugin:
- * - Registers the default textdomain.
- */
-function mvpress_init() {
-	$locale = apply_filters( 'plugin_locale', get_locale(), 'mvpress' );
-	load_textdomain( 'mvpress', WP_LANG_DIR . '/mvpress/mvpress-' . $locale . '.mo' );
-	load_plugin_textdomain( 'mvpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-}
-add_action( 'init', 'mvpress_init' );
-
-/**
  * Shortcut to create a new WP_Template object and render it on the page.
  *
  * Template file will be fetched from the theme assuming it is named {$slug}-{$name}.php. To reference templates
@@ -74,31 +61,5 @@ add_action( 'init', 'mvpress_init' );
  * @return void
  */
 function mvpress_template_part( $slug, $name = null, $model = null, $tempData = array() ) {
-	do_action( "get_template_part_{$slug}", $slug, $name );
-
-	$templates = array();
-	if ( 'string' === gettype( $name ) ) {
-		// If $name is a string, assume it's a template part definition and load a template.
-		$templates[] = "{$slug}-{$name}.php";
-	} elseif ( null !== $name ) {
-		// If $name is non-null and also not a string, then we're overloading the method as ( $slug, $model, $tempData )
-		if ( null !== $model ) {
-			// The third parameter (now assumed to be $tempData) is non-null, so move it to the proper variable.
-			$tempData = $model;
-		}
-
-		// Move the data model from the second variable ($name) to its proper place.
-		$model = $name;
-	}
-	$templates[] = "{$slug}.php";
-
-	$path = locate_template( $templates );
-
-	if ( '' === $path ) {
-		return;
-	}
-
-	$template = new WP_Template( $path, $model, $tempData );
-
-	$template->render();
+	\MVPress\get_template_part( $slug, $name, $model, $tempData );
 }
