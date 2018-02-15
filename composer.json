@@ -2,7 +2,7 @@
 	"name": "ericmann/mvpress",
 	"description": "MVC-style template loader for WordPress",
 	"type": "library",
-	"license": "GPLv2+",
+	"license": "GPL-2.0-or-later",
 	"version": "1.0.0",
 	"authors": [
 		{
